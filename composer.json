@@ -1,0 +1,24 @@
+{
+    "name": "snappmarket/gopi-communicator",
+    "require": {
+        "php": ">=7.1",
+        "snappmarket/php-rest-communicator": "^1.3"
+    },
+    "authors": [
+        {
+            "name": "Ali Mokhtari",
+            "email": "alimokhtari423@gmail.com"
+        },
+        {
+            "name": "Ali Farhoudi",
+            "email": "af.farhoudi@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SnappMarket\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false
+}
