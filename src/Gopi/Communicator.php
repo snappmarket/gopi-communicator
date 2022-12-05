@@ -490,6 +490,7 @@ class Communicator extends BasicCommunicator
     public function storeProductChangeStockLog(int $userId, int $orderId, int $VendorId, int $stockBefore, int $stockAfter, string $reason, string $source)
     {
         $uri = 'api/v1/product/stock-log';
+
         try {
             $response = $this->request(static::METHOD_POST, $uri, [
                 'user_id' => $userId,
