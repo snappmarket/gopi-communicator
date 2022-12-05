@@ -486,4 +486,25 @@ class Communicator extends BasicCommunicator
             throw new InventoryRequestValidationException($exception->getMessage());
         }
     }
+
+    public function storeProductChangeStockLog(int $userId, int $orderId, int $VendorId, int $stockBefore, int $stockAfter, string $reason, string $source)
+    {
+        $uri = 'api/v1/product/stock-log';
+        try {
+            $response = $this->request(static::METHOD_POST, $uri, [
+                'user_id' => $userId,
+                'order_id' => $orderId,
+                'vendor_id' => $VendorId,
+                'stock_before' => $stockBefore,
+                'stock_after' => $stockAfter,
+                'reason' => $reason,
+                'source' => $source,
+            ], $this->getHeaders());
+
+            return json_decode((string)$response->getBody(), true);
+        } catch (ClientException $exception) {
+            $this->checkError($exception->getResponse());
+            throw new InventoryRequestValidationException($exception->getMessage());
+        }
+    }
 }
