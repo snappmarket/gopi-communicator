@@ -487,20 +487,22 @@ class Communicator extends BasicCommunicator
         }
     }
 
-    public function storeProductChangeStockLog(int $userId, int $orderId, int $VendorId, int $stockBefore, int $stockAfter, string $reason, string $source)
+    public function storeProductChangeStockLog(int $userId, int $productId, int $VendorId, int $stockBefore,
+                                               int $stockAfter, int $reasonId, string $source, int $orderId = null)
     {
         $uri = 'api/v1/product/stock-log';
 
         try {
             $response = $this->request(static::METHOD_POST, $uri, [
                 'user_id' => $userId,
+                'product_id' => $productId,
                 'order_id' => $orderId,
                 'vendor_id' => $VendorId,
                 'stock_before' => $stockBefore,
                 'stock_after' => $stockAfter,
-                'reason' => $reason,
+                'reason_id' => $reasonId,
                 'source' => $source,
-            ], $this->getHeaders());
+            ]);
 
             return json_decode((string)$response->getBody(), true);
         } catch (ClientException $exception) {
