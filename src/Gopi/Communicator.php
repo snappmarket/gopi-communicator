@@ -488,7 +488,7 @@ class Communicator extends BasicCommunicator
     }
 
     public function storeProductChangeStockLog(int $userId, int $productId, int $VendorId, int $stockBefore,
-                                               int $stockAfter, int $reasonId, string $source, int $orderId = null)
+                                               int $stockAfter, string $reasonCode, string $source, int $orderId = null)
     {
         $uri = 'api/v1/product/stock-log';
 
@@ -500,7 +500,7 @@ class Communicator extends BasicCommunicator
                 'vendor_id' => $VendorId,
                 'stock_before' => $stockBefore,
                 'stock_after' => $stockAfter,
-                'reason_id' => $reasonId,
+                'reason_code' => $reasonCode,
                 'source' => $source,
             ]);
 
