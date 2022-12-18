@@ -52,6 +52,8 @@ class Communicator extends BasicCommunicator
                 'user_id' => $deductionDTO->getUserId(),
                 'vendor_id' => $deductionDTO->getVendorId(),
                 'products' => $products,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -71,6 +73,8 @@ class Communicator extends BasicCommunicator
                 'title' => $productSearchDTO->getTitle(),
                 'page' => $productSearchDTO->getPage(),
                 'limit' => $productSearchDTO->getLimit(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -116,6 +120,8 @@ class Communicator extends BasicCommunicator
                 'source' => 'NASIMA',
                 'location_barcode' => $locationBarcode,
                 'correlation_id' => uniqid(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true)['data'];
@@ -135,6 +141,8 @@ class Communicator extends BasicCommunicator
                 'product_barcode' => $productBarcode,
                 'location_barcode' => $locationBarcode,
                 'correlation_id' => uniqid(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true)['data'];
@@ -153,6 +161,8 @@ class Communicator extends BasicCommunicator
                 'user_id' => $userId,
                 'vendor_id' => $vendorId,
                 'correlation_id' => uniqid(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -170,6 +180,8 @@ class Communicator extends BasicCommunicator
             $response = $this->request(static::METHOD_GET, $uri, [
                 'barcode' => $barcode,
                 'vendor_id' => $vendorId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -187,6 +199,8 @@ class Communicator extends BasicCommunicator
             $response = $this->request(static::METHOD_GET, $uri, [
                 'barcode' => $productDetailDTO->getBarcode(),
                 'vendor_id' => $productDetailDTO->getVendorId(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             $this->checkError($response);
@@ -228,6 +242,8 @@ class Communicator extends BasicCommunicator
                 'user_id' => $createPalletBatchDTO->getUserId(),
                 'vendor_id' => $createPalletBatchDTO->getVendorId(),
                 'products' => $products,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -246,6 +262,8 @@ class Communicator extends BasicCommunicator
                 'products' => $products,
                 'source' => 'NASIMA',
                 'correlation_id' => uniqid(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -309,6 +327,8 @@ class Communicator extends BasicCommunicator
                 'product_barcode' => $changeLocationDTO->getProductBarcode(),
                 'current_aisle_barcode' => $changeLocationDTO->getCurrentAisleBarcode(),
                 'new_aisle_barcode' => $changeLocationDTO->getNewAisleBarcode(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return true;
@@ -326,6 +346,8 @@ class Communicator extends BasicCommunicator
             $response = $this->request(static::METHOD_DELETE, $uri, [
                 'user_id' => $userId,
                 'vendor_id' => $vendorId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -343,6 +365,8 @@ class Communicator extends BasicCommunicator
             $response = $this->request(static::METHOD_GET, $uri, [
                 'barcode' => $checkBarcodeDTO->getBarcode(),
                 'vendor_id' => $checkBarcodeDTO->getVendorId(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -358,6 +382,8 @@ class Communicator extends BasicCommunicator
         try {
             $response = $this->request(static::METHOD_PUT, $uri, [
                 'user_id' => $userId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -373,6 +399,8 @@ class Communicator extends BasicCommunicator
         try {
             $response = $this->request(static::METHOD_PUT, $uri, [
                 'user_id' => $userId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -390,6 +418,8 @@ class Communicator extends BasicCommunicator
             $response = $this->request(static::METHOD_GET, $uri, [
                 'user_id' => $userId,
                 'vendor_id' => $vendorId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -405,6 +435,8 @@ class Communicator extends BasicCommunicator
         try {
             $response = $this->request(static::METHOD_PATCH, $uri, [
                 'user_id' => $userId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -420,6 +452,8 @@ class Communicator extends BasicCommunicator
         try {
             $response = $this->request(static::METHOD_PATCH, $uri, [
                 'user_id' => $userId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -449,6 +483,8 @@ class Communicator extends BasicCommunicator
             $response = $this->request(static::METHOD_PATCH, $uri, [
                 'user_id' => $replenishProductDTO->getUserId(),
                 'quantity' => $replenishProductDTO->getQuantity(),
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -464,6 +500,8 @@ class Communicator extends BasicCommunicator
         try {
             $response = $this->request(static::METHOD_DELETE, $uri, [
                 'user_id' => $userId,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
@@ -502,6 +540,8 @@ class Communicator extends BasicCommunicator
                 'stock_after' => $stockAfter,
                 'reason_code' => $reasonCode,
                 'source' => $source,
+            ],[
+                static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
             return json_decode((string)$response->getBody(), true);
