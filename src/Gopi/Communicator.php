@@ -550,4 +550,22 @@ class Communicator extends BasicCommunicator
             throw new InventoryRequestValidationException($exception->getMessage());
         }
     }
+
+    public function storeDeactivationBlackList(array $productIds)
+    {
+        $uri = 'api/v1/apa-deactivation/black-list';
+
+        try {
+            $response = $this->request(static::METHOD_PUT, $uri, [
+                'zooket_product_variation_id' => $productIds,
+            ], [
+                static::CONTENT_TYPE => static::APPLICATION_JSON
+            ]);
+
+            return json_decode((string)$response->getBody(), true);
+        } catch (ClientException $exception) {
+            $this->checkError($exception->getResponse());
+            throw new InventoryRequestValidationException($exception->getMessage());
+        }
+    }
 }
