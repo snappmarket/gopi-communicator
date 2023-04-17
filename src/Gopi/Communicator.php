@@ -557,7 +557,7 @@ class Communicator extends BasicCommunicator
 
         try {
             $response = $this->request(static::METHOD_PUT, $uri, [
-                'zooket_product_variation_id' => $productIds,
+                'zooket_product_variation_ids' => $productIds,
             ], [
                 static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
