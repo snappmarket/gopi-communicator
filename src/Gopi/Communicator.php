@@ -551,13 +551,14 @@ class Communicator extends BasicCommunicator
         }
     }
 
-    public function storeActivationBlackList(array $productIds)
+    public function storeActivationBlackList(array $productVariationIds, int $vendorId)
     {
-        $uri = 'api/v1/apa-activation/black-list';
+        $uri = 'api/v1/apa/blacklist';
 
         try {
             $response = $this->request(static::METHOD_PUT, $uri, [
-                'zooket_product_variation_ids' => $productIds,
+                'productVariationIds' => $productVariationIds,
+                'vendorId' => $vendorId,
             ], [
                 static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
