@@ -551,15 +551,12 @@ class Communicator extends BasicCommunicator
         }
     }
 
-    public function storeActivationBlackList(array $productVariationIds, int $vendorId)
+    public function storeActivationBlackList(array $data)
     {
         $uri = 'api/v1/apa/blacklist';
 
         try {
-            $response = $this->request(static::METHOD_PUT, $uri, [
-                'productVariationIds' => $productVariationIds,
-                'vendorId' => $vendorId,
-            ], [
+            $response = $this->request(static::METHOD_PUT, $uri, $data, [
                 static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
