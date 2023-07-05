@@ -556,7 +556,7 @@ class Communicator extends BasicCommunicator
         $uri = 'api/v1/apa/blacklist';
 
         try {
-            $response = $this->request(static::METHOD_PUT, $uri, $data, [
+            $response = $this->request(static::METHOD_PUT, $uri, ['data' => $data], [
                 static::CONTENT_TYPE => static::APPLICATION_JSON
             ]);
 
