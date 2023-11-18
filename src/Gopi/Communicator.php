@@ -32,9 +32,9 @@ class Communicator extends BasicCommunicator
         $headers[static::CONTENT_TYPE] = static::APPLICATION_JSON;
 
         parent::__construct($baseUri, $headers, $logger, [
-            'connect_timeout' => 3,
-            'read_timeout' => 3,
-            'timeout' => 3
+            'connect_timeout' => 10,
+            'read_timeout' => 10,
+            'timeout' => 10
         ]);
     }
 
