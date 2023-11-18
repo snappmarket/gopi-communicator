@@ -31,7 +31,11 @@ class Communicator extends BasicCommunicator
         $headers[static::SECURITY_TOKEN_HEADER] = $securityToken;
         $headers[static::CONTENT_TYPE] = static::APPLICATION_JSON;
 
-        parent::__construct($baseUri, $headers, $logger);
+        parent::__construct($baseUri, $headers, $logger, [
+            'connect_timeout' => 3,
+            'read_timeout' => 3,
+            'timeout' => 3
+        ]);
     }
 
     public function deduction(DeductionDTO $deductionDTO): array
